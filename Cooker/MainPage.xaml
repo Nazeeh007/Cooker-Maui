@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooker.MainPage">
+
+	<Grid>
+		<Image Aspect="Fill" Source="bg2.jpg" />
+		<!--nested grid. OR StackLayout, etc.-->
+		<Grid RowDefinitions="*,*"  Margin="150,180">
+			<Label 
+               Text="Welcome to Cookers"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" 
+              TextColor="White"
+              FontSize="26"/>
+			<StackLayout Grid.Row="1" Margin="40,0" Spacing="20" >
+				<Button x:Name="OrderBtn" Text="Order Now"  BackgroundColor="Red"/>
+				<Button x:Name="LoginBtn" Text="Login"  BackgroundColor="Red" Clicked="Button_Clicked"/>
+			</StackLayout>
+
+		</Grid>
+	</Grid>
+
+</ContentPage>
