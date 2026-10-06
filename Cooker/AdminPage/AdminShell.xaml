@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell 
+	x:Class="Cooker.AdminPage.AdminShell"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:admin="clr-namespace:Cooker.AdminPage"
+	Shell.FlyoutBehavior="Flyout"
+	BackgroundColor="Red"
+	Title="Admin Shell">
+
+	<ShellContent
+        Title="Admin Panel" ContentTemplate="{DataTemplate admin:AdminPanel}" 
+		Route="AdminPanel"/>
+
+
+
+</Shell>

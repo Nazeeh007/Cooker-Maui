@@ -11,7 +11,8 @@
     Title="Cooker">
 
 	<ShellContent
-        Title="Cookers" ContentTemplate="{DataTemplate local:MainPage}"  Icon="restaurant3.png"/>
+        Title="Cookers" ContentTemplate="{DataTemplate local:MainPage}"  Icon="restaurant3.jpg"/>  
+
 
 	<ShellContent
         Title="Login" ContentTemplate="{DataTemplate admin:LoginPage}"  />

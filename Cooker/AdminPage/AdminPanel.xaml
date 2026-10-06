@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooker.AdminPage.AdminPanel"
+             Title="Admin Panel">
+	<Grid>
+		<Image Source="adminpanel.jpg"  Aspect="Fill" />
+
+		<Grid RowDefinitions="auto,auto,auto,auto" Margin="30,250" RowSpacing="20" >
+			<!--<Grid RowDefinitions="*,*,*,*" Margin="30,150" RowSpacing="20" >-->
+			<Button Grid.Row="0"
+					x:Name="Admin Control"
+					BackgroundColor="red"
+					FontAttributes="Bold"
+					FontSize="Medium"/>
+			<Button Grid.Row="1"
+					x:Name="Item Control"
+					BackgroundColor="red"
+					FontAttributes="Bold"
+					FontSize="Medium"/>
+			<Button Grid.Row="2"
+					x:Name="Order Control"
+					BackgroundColor="red"
+					FontAttributes="Bold"
+					FontSize="Medium"/>
+			<Button Grid.Row="3"
+					x:Name="Report"
+					BackgroundColor="red"
+					FontAttributes="Bold"
+					FontSize="Medium"/>
+
+		</Grid>
+	</Grid>
+</ContentPage>

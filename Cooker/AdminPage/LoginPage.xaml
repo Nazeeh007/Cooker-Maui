@@ -4,21 +4,20 @@
              x:Class="Cooker.AdminPage.LoginPage"
              Title="LoginPage">
 	<Grid>
-		<Image Source="bg2.jpg" BackgroundColor="LightBlue" Aspect="Fill" />
+		<Image Source="loginpage.jpg" BackgroundColor="LightBlue" Aspect="Fill" />
 
 		<Grid RowDefinitions="*,*,*" Margin="50,150"  >
 
 			<StackLayout Grid.Row="0" Margin="10" >
-				<Label Text="User Name" FontSize="Medium" FontAttributes="Bold" />
-				<Entry FontSize="Medium"/>
+				<Label Text="User Name" FontSize="Medium" FontAttributes="Bold" TextColor="White" />
+				<Entry FontSize="Medium"  TextColor="Black" BackgroundColor="White" Placeholder="UserName" />
 			</StackLayout>
 			<StackLayout Grid.Row="1" Margin="10" >
-				<Label Text="Password" FontSize="Medium" FontAttributes="Bold"/>
-				<Entry FontSize="Medium"/>
+				<Label Text="Password" FontSize="Medium" FontAttributes="Bold"  TextColor="White"/>
+				<Entry FontSize="Medium"  TextColor="Black" BackgroundColor="White" Placeholder="Password" />
 			</StackLayout>
 			<StackLayout Grid.Row="2" Margin="10" >
-				<!--<Button x:Name="btnlogin" Text="Order Now"  BackgroundColor="Red" Clicked="btnlogin_Clicked"/>-->
-				<Button x:Name="btnlogin" Text="Order Now"  BackgroundColor="Red"/>
+				<Button x:Name="btnlogin" Text="Order Now"  BackgroundColor="Red" Clicked="btnlogin_Clicked"/>
 			</StackLayout>
 		</Grid>
 	</Grid>
