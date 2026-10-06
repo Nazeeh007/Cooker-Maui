@@ -6,6 +6,37 @@ public partial class AdminShell : Shell
 	{
 		InitializeComponent();
 		Routing.RegisterRoute("AdminPanel", typeof(AdminPanel));
+	
+
+		ShellContent adminControl = new ShellContent();
+		ShellContent ItemControl = new ShellContent();
+		ShellContent OrderControl = new ShellContent();
+		ShellContent report = new ShellContent();
+
+		adminControl.Title = "Admin Control";
+		adminControl.ContentTemplate= new DataTemplate(typeof(AdminControls.AdminControlPage));
+
+		ItemControl.Title = "Item Control";
+		ItemControl.ContentTemplate = new DataTemplate(typeof(ItemControls.ItemControlPage));
+
+		OrderControl.Title = "Order Control";
+		OrderControl.ContentTemplate = new DataTemplate(typeof(OrderControls.OrderControlPage));
+
+		report.Title = "Report";
+		report.ContentTemplate = new DataTemplate(typeof(Report.ReportPage));
+
+		MyAdminShell.Items.Add(adminControl);
+		MyAdminShell.Items.Add(ItemControl);
+		MyAdminShell.Items.Add(OrderControl);
+		MyAdminShell.Items.Add(report);
+
+		Routing.RegisterRoute("AdminControlPage", typeof(AdminControls.AdminControlPage));
+		Routing.RegisterRoute("ItemControlPage", typeof(ItemControls.ItemControlPage));
+		Routing.RegisterRoute("OrderControlPage", typeof(OrderControls.OrderControlPage));
+		Routing.RegisterRoute("ReportPage", typeof(Report.ReportPage));
+
+
+
 
 	}
 }
