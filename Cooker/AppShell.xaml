@@ -4,6 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Cooker"
+    xmlns:orders="clr-namespace:Cooker.OrdersPage"
+    xmlns:admin="clr-namespace:Cooker.AdminPage"
     Shell.FlyoutBehavior="Flyout"
 	BackgroundColor="Red"
     Title="Cooker">
@@ -12,6 +14,8 @@
         Title="Cookers" ContentTemplate="{DataTemplate local:MainPage}"  Icon="restaurant3.png"/>
 
 	<ShellContent
-        Title="Login" ContentTemplate="{DataTemplate local:LoginPage}"  />
+        Title="Login" ContentTemplate="{DataTemplate admin:LoginPage}"  />
+	<ShellContent
+         Title="New Order" ContentTemplate="{DataTemplate orders:CreateOrder}"  />
 
 </Shell>

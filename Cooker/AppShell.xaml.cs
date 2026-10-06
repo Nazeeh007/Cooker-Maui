@@ -1,4 +1,7 @@
-﻿namespace Cooker
+﻿using Cooker.OrdersPage;
+using Cooker.AdminPage;
+
+namespace Cooker
 {
     public partial class AppShell : Shell
     {
@@ -6,8 +9,9 @@
 		{
 			InitializeComponent();
 			Routing.RegisterRoute("LoginPage", typeof(LoginPage));
-			Routing.RegisterRoute("HomePage", typeof(HomePage));
-			Routing.RegisterRoute("AppShell", typeof(AppShell));
+			Routing.RegisterRoute("CreateOrder", typeof(CreateOrder));
+			//Routing.RegisterRoute("AppShell", typeof(AppShell));
+			//Routing.RegisterRoute("HomePage", typeof(HomePage));
 		}
 	}
 }

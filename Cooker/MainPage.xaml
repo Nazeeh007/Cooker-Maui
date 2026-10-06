@@ -6,7 +6,7 @@
 	<Grid>
 		<Image Aspect="Fill" Source="bg2.jpg" />
 		<!--nested grid. OR StackLayout, etc.-->
-		<Grid RowDefinitions="*,*"  Margin="150,180">
+		<Grid RowDefinitions="*,*"  Margin="100,180">
 			<Label 
                Text="Welcome to Cookers"
                VerticalOptions="Center" 
@@ -14,7 +14,7 @@
               TextColor="White"
               FontSize="26"/>
 			<StackLayout Grid.Row="1" Margin="40,0" Spacing="20" >
-				<Button x:Name="OrderBtn" Text="Order Now"  BackgroundColor="Red"/>
+				<Button x:Name="OrderBtn" Text="Order Now"  BackgroundColor="Red" Clicked="OrderBtn_Clicked"/>
 				<Button x:Name="LoginBtn" Text="Login"  BackgroundColor="Red" Clicked="Button_Clicked"/>
 			</StackLayout>
 

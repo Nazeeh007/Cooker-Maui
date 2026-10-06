@@ -14,6 +14,11 @@
 			await Shell.Current.GoToAsync("LoginPage");
 		}
 
+		private async void OrderBtn_Clicked(object sender, EventArgs e)
+		{
+			await Shell.Current.GoToAsync("CreateOrder");
+
+		}
 	}
 
 }
