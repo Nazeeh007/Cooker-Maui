@@ -1,5 +1,4 @@
-﻿
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Cooker.Models;
 
@@ -11,6 +10,18 @@ namespace Cooker.AdminPage.AdminControls
 		[ObservableProperty]
 		public NewUser nUser;
 
+		[ObservableProperty]
+		public List<UserRolesName> lUserRole;
+
+		[ObservableProperty]
+		public List<Role> lRole;
+
+		[ObservableProperty]
+		public Role selectedRole;
+
+
+	
+
 		public AddEditUserPageVM()
 		{
 			loadCommand();
@@ -20,10 +31,13 @@ namespace Cooker.AdminPage.AdminControls
 			if (UserFn.UserAddEdit == 0)
 			{
 				NUser = new NewUser();
+				LRole = await UserFn.GetAllRoles();
 			}
 			else
 			{
 				NUser = await UserFn.GetUser(UserFn.UserAddEdit);
+				LUserRole = await UserFn.GetUserRole(UserFn.UserAddEdit);
+				LRole = await UserFn.GetAllRoles();
 			}
 		}
 		[RelayCommand]
@@ -47,6 +61,19 @@ namespace Cooker.AdminPage.AdminControls
 
 
 			await Shell.Current.GoToAsync("AdminControlPage");
+		}
+
+		[RelayCommand]
+		public async Task AddRole()
+		{
+			await UserFn.AddUserRole(UserFn.UserAddEdit, SelectedRole.Id);
+			await loadCommand();
+		}
+		[RelayCommand]
+		public async Task DeleteRole(int Id)
+		{
+			await UserFn.DeleteUserRole(Id);
+			await loadCommand();
 		}
 
 
