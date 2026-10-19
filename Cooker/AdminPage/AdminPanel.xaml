@@ -6,7 +6,7 @@
 	<Grid>
 		<Image Source="adminpanel.jpg"  Aspect="Fill" />
 
-		<Grid RowDefinitions="auto,auto,auto,auto" Margin="50,200" RowSpacing="20" >
+		<Grid RowDefinitions="auto,auto,auto,auto,auto" Margin="50,200" RowSpacing="20" >
 			<!--<Grid RowDefinitions="*,*,*,*" Margin="30,150" RowSpacing="20" >-->
 			<Button Grid.Row="0"
 					x:Name="AdminControl"
@@ -16,22 +16,30 @@
 					FontSize="Medium"
 					Clicked="AdminControl_Clicked"/>
 					<!--IsVisible="false"-->
-					
+
 			<Button Grid.Row="1"
+					x:Name="GroupControl"
+					Text="Group Control"
+					BackgroundColor="red"
+					FontAttributes="Bold"
+					FontSize="Medium"
+					Clicked="GroupControl_Clicked"/>
+			
+			<Button Grid.Row="2"
 					x:Name="ItemControl"	
 					Text="Item Control"
 					BackgroundColor="red"
 					FontAttributes="Bold"
 					FontSize="Medium"
 					Clicked="ItemControl_Clicked"/>
-			<Button Grid.Row="2"
+			<Button Grid.Row="3"
 					x:Name="OrderControl"	
 					Text="Order Control"
 					BackgroundColor="red"
 					FontAttributes="Bold"
 					FontSize="Medium"
 					Clicked="OrderControl_Clicked"/>
-			<Button Grid.Row="3"
+			<Button Grid.Row="4"
 					x:Name="Report"
 					Text="Report"
 					BackgroundColor="red"

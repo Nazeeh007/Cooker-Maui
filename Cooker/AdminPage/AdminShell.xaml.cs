@@ -10,12 +10,16 @@ public partial class AdminShell : Shell
 
 
 		ShellContent adminControl = new ShellContent();
+		ShellContent groupControl = new ShellContent();
 		ShellContent ItemControl = new ShellContent();
 		ShellContent OrderControl = new ShellContent();
 		ShellContent report = new ShellContent();
 
 		adminControl.Title = "Admin Control";
 		adminControl.ContentTemplate= new DataTemplate(typeof(AdminControls.AdminControlPage));
+
+		groupControl.Title = "Group Control";
+		groupControl.ContentTemplate = new DataTemplate(typeof(GroupControls.GroupControlPage));
 
 		ItemControl.Title = "Item Control";
 		ItemControl.ContentTemplate = new DataTemplate(typeof(ItemControls.ItemControlPage));
@@ -27,11 +31,13 @@ public partial class AdminShell : Shell
 		report.ContentTemplate = new DataTemplate(typeof(Report.ReportPage));
 
 		MyAdminShell.Items.Add(adminControl);
+		MyAdminShell.Items.Add(groupControl);
 		MyAdminShell.Items.Add(ItemControl);
 		MyAdminShell.Items.Add(OrderControl);
 		MyAdminShell.Items.Add(report);
 
 		Routing.RegisterRoute("AdminControlPage", typeof(AdminControls.AdminControlPage));
+		Routing.RegisterRoute("GroupControlPage", typeof(GroupControls.GroupControlPage));
 		Routing.RegisterRoute("ItemControlPage", typeof(ItemControls.ItemControlPage));
 		Routing.RegisterRoute("OrderControlPage", typeof(OrderControls.OrderControlPage));
 		Routing.RegisterRoute("ReportPage", typeof(Report.ReportPage));

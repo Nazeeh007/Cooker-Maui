@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooker.AdminPage.GroupControls.GroupControlPage"
+			 xmlns:viewmodel="clr-namespace:Cooker.AdminPage.GroupControls" x:DataType="viewmodel:GroupControlPageVM"      
+	         xmlns:model="clr-namespace:Cooker.Models"
+             Title="GroupControlPage">
+    <VerticalStackLayout Margin="10" Spacing="10">
+		<Button Text="Add Group"  BackgroundColor="red" Command="{Binding AddCommand}"/>
+
+		<ListView  ItemsSource="{Binding LGroups}">
+			<ListView.ItemTemplate>
+				<DataTemplate x:DataType="model:Group">
+					<ViewCell>
+						<Grid ColumnDefinitions="*,*,*,*,*,*">
+							<Label Grid.Column="0" Text="{Binding Gname}"/>
+							<Label Grid.Column="1" Text="{Binding Gstatus}"/>
+							<Label Grid.Column="2" Text="{Binding Gimage}"/>
+							<ImageButton Grid.Column="3"
+										  Source="pencil2.png"
+										  HorizontalOptions="Center"
+										  VerticalOptions="Center" 
+										  WidthRequest="25"
+										  HeightRequest="25"
+										  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GroupControlPageVM}},Path=EditCommand }" 
+										  CommandParameter="{Binding Id}"/>
+							<ImageButton Grid.Column="4"
+										 Source="delete.png"
+										 HorizontalOptions="Center"
+										 VerticalOptions="Center" 
+										 WidthRequest="25"
+										 HeightRequest="25"
+										 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GroupControlPageVM}},Path=StopCommand }" 
+										 CommandParameter="{Binding Id}"/>
+							<ImageButton Grid.Column="5"
+										 Source="success.png"
+										 HorizontalOptions="Center"
+										 VerticalOptions="Center" 
+										 WidthRequest="25"
+										 HeightRequest="25"
+										 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GroupControlPageVM}},Path=StartCommand }" 
+										 CommandParameter="{Binding Id}"/>
+						</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</VerticalStackLayout>
+</ContentPage>

@@ -32,4 +32,10 @@ public partial class AdminPanel : ContentPage
 		await Shell.Current.GoToAsync("ReportPage");
 
 	}
+
+	private async void GroupControl_Clicked(object sender, EventArgs e)
+	{
+		await Shell.Current.GoToAsync("GroupControlPage");
+
+	}
 }
