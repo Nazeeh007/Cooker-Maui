@@ -1,5 +1,4 @@
-﻿
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using System.Text;
 using Cooker.Models;
 using Newtonsoft.Json;

@@ -17,7 +17,7 @@
 							<Label Grid.Column="1" Text="{Binding Gstatus}"/>
 							<Label Grid.Column="2" Text="{Binding Gimage}"/>
 							<ImageButton Grid.Column="3"
-										  Source="pencil2.png"
+										  Source="edit.png"
 										  HorizontalOptions="Center"
 										  VerticalOptions="Center" 
 										  WidthRequest="25"
@@ -33,7 +33,7 @@
 										 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GroupControlPageVM}},Path=StopCommand }" 
 										 CommandParameter="{Binding Id}"/>
 							<ImageButton Grid.Column="5"
-										 Source="success.png"
+										 Source="active.png"
 										 HorizontalOptions="Center"
 										 VerticalOptions="Center" 
 										 WidthRequest="25"
