@@ -15,7 +15,7 @@
 						<Grid ColumnDefinitions="*,*,*,*,*,*">
 							<Label Grid.Column="0" Text="{Binding Gname}"/>
 							<Label Grid.Column="1" Text="{Binding Gstatus}"/>
-							<Label Grid.Column="2" Text="{Binding Gimage}"/>
+							<Image Grid.Column="2" Source="{Binding Gimage}" WidthRequest="100" HeightRequest="100"/>
 							<ImageButton Grid.Column="3"
 										  Source="edit.png"
 										  HorizontalOptions="Center"

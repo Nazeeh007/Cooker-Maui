@@ -29,7 +29,7 @@ namespace Cooker.AdminPage.GroupControls
 			else
 			{
 				NGroup = await GroupFn.GetGroup(GroupFn.GroupAddEdit);
-
+				NImage = NGroup.Gimage;
 			}
 		}
 
@@ -38,15 +38,44 @@ namespace Cooker.AdminPage.GroupControls
 		{
 			if (GroupFn.GroupAddEdit == 0)
 			{
+				if (Imagestring != null)
+				{
+					NGroup.Gimage = Imagestring;
+				}
 				NGroup.Gstatus = true;
 				await GroupFn.AddAsync(NGroup);
 			}
 			else
 			{
+				if (Imagestring != null)
+				{
+					NGroup.Gimage = Imagestring;
+				}
 				await GroupFn.UpdateAsync(NGroup);
 			}
 
 			await Shell.Current.GoToAsync("GroupControlPage");
+		}
+		[RelayCommand]
+
+		public async void Select()
+		{
+			var result = await FilePicker.PickAsync(new PickOptions
+			{
+				PickerTitle = "Select Image ",
+				FileTypes = FilePickerFileType.Png
+			});
+
+			if (result == null)
+				return;
+
+			Stream stream = await result.OpenReadAsync();
+
+			NImage = ImageSource.FromStream(() => stream);
+
+
+			byte[] imageArray = File.ReadAllBytes(result.FullPath);
+			Imagestring = Convert.ToBase64String(imageArray);
 		}
 
 

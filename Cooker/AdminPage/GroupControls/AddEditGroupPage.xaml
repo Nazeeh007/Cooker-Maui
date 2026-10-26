@@ -16,8 +16,6 @@
 		<Entry Text="{Binding NGroup.Gname}"/>
 
 		<Label Text="Image"/>
-		<Entry Text="{Binding NGroup.Gimage}"/>
-
 		<Image  BackgroundColor="Aqua"  Source ="{Binding NImage}" WidthRequest="500" HeightRequest="300" />
 
 		<Button Command="{Binding SelectCommand}" Text="Select Image"/>
