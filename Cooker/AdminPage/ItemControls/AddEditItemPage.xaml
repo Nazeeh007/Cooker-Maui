@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooker.AdminPage.ItemControls.AddEditItemPage"
+             Title="AddEditItemPage"
+			 xmlns:viewmodel="clr-namespace:Cooker.AdminPage.ItemControls" x:DataType="viewmodel:AddEditItemPageVM" 
+             xmlns:model="clr-namespace:Cooker.Models">
+
+	<VerticalStackLayout Margin="20">
+		<Label 
+				Text="Welcome to Add Edit Item"
+				VerticalOptions="Center" 
+				HorizontalOptions="Center" />
+
+		<Label Text="Item Name"/>
+		<Entry Text="{Binding NItem.ItmName }"/>
+
+		<Label Text="Item Description"/>
+		<Entry Text="{Binding NItem.ItmDesc }"/>
+		
+		<Label Text="Item Price"/>
+		<Entry Text="{Binding NItem.ItmPrice }"/>
+
+		<Label Text="Image"/>
+		<Image  BackgroundColor="Aqua"  Source ="{Binding NImage}" WidthRequest="300" HeightRequest="200" />
+
+		<Button Command="{Binding SelectCommand}" Text="Select Image"/>
+
+
+		<Button Text="Save" Command="{Binding SaveAddEditCommand}" BackgroundColor="red"/>
+
+	</VerticalStackLayout>
+</ContentPage>

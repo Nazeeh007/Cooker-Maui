@@ -85,6 +85,9 @@
 	  <MauiXaml Update="AdminPage\GroupControls\GroupControlPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="AdminPage\ItemControls\AddEditItemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="AdminPage\ItemControls\ItemControlPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

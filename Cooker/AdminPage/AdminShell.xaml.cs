@@ -8,6 +8,7 @@ public partial class AdminShell : Shell
 		Routing.RegisterRoute("AdminPanel", typeof(AdminPanel));
 		Routing.RegisterRoute("AddEditUserPage", typeof(AdminControls.AddEditUserPage));
 		Routing.RegisterRoute("AddEditGroupPage", typeof(GroupControls.AddEditGroupPage));
+		Routing.RegisterRoute("AddEditItemPage", typeof(ItemControls.AddEditItemPage));
 
 
 		ShellContent adminControl = new ShellContent();
