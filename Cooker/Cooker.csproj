@@ -103,6 +103,9 @@
 	  <MauiXaml Update="OrdersPage\CreateOrder.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="OrdersPage\OrderItemsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

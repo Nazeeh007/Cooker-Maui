@@ -12,11 +12,11 @@ namespace Cooker.AdminPage.ItemControls
 	internal class ItemFn
 	{
 		public static int ItemAddEdit = 0;
-		public static async Task<List<Item>> GetAll()
+		public static async Task<List<ItemView>> GetAll()
 		{
 			string result = string.Empty;
 
-			List<Item> LItem = new List<Item>();
+			List<ItemView> LItem = new List<ItemView>();
 
 			string url = string.Format("https://localhost:7235/Items/GetAllItems");
 
@@ -30,13 +30,37 @@ namespace Cooker.AdminPage.ItemControls
 				{
 					result = await response.Content.ReadAsStringAsync();
 
-					LItem = JsonConvert.DeserializeObject<List<Item>>(result);
+					LItem = JsonConvert.DeserializeObject<List<ItemView>>(result);
 				}
 			}
 
 			return LItem;
 		}
-		public async static Task<string> AddAsync(Item item)
+		public static async Task<List<ItemView>> GetItemsByGroup(int gID)
+		{
+			string result = string.Empty;
+
+			List<ItemView> LItem = new List<ItemView>();
+
+			string url = string.Format($"https://localhost:7235/Items/GetAllItemsByGroup?grpId={gID}");
+
+			using (HttpClient client = new HttpClient())
+			{
+				client.BaseAddress = new Uri(url);
+
+				HttpResponseMessage response = await client.GetAsync(url);
+
+				if (response.IsSuccessStatusCode)
+				{
+					result = await response.Content.ReadAsStringAsync();
+
+					LItem = JsonConvert.DeserializeObject<List<ItemView>>(result);
+				}
+			}
+
+			return LItem;
+		}
+		public async static Task<string> AddAsync(ItemView item)
 		{
 			string result = string.Empty;
 
@@ -55,12 +79,12 @@ namespace Cooker.AdminPage.ItemControls
 			}
 			return result;
 		}
-		public static async Task<Item> GetItem(int? id)
+		public static async Task<ItemView> GetItem(int? id)
 		{
 
 			string result = string.Empty;
 
-			Item nItem = new Item();
+			ItemView nItem = new ItemView();
 
 
 			string url = string.Format($"https://localhost:7235/Items/GetItem?itemId={id}");
@@ -74,13 +98,13 @@ namespace Cooker.AdminPage.ItemControls
 				{
 					result = await response.Content.ReadAsStringAsync();
 
-					nItem = JsonConvert.DeserializeObject<Item>(result);
+					nItem = JsonConvert.DeserializeObject<ItemView>(result);
 
 				}
 			}
 			return nItem;
 		}
-		public static async Task<string> UpdateAsync(Item item)
+		public static async Task<string> UpdateAsync(ItemView item)
 		{
 			string result = string.Empty;
 			string url = string.Format($"https://localhost:7235/Items/EditItem");

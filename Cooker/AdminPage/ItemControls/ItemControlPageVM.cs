@@ -7,7 +7,7 @@ namespace Cooker.AdminPage.ItemControls
 	public partial class ItemControlPageVM : ObservableObject
 	{
 		[ObservableProperty]
-		public List<Item> lItems;
+		public List<ItemView> lItems;
 
 		public async Task Reload()
 		{

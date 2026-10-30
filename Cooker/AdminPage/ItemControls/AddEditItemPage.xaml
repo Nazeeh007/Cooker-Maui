@@ -21,6 +21,21 @@
 		<Label Text="Item Price"/>
 		<Entry Text="{Binding NItem.ItmPrice }"/>
 
+		<Label Text="Item Group"/>
+		<!--<Entry Text="{Binding NItem.Gid }"/>-->
+		<!--<Picker WidthRequest="300" 
+				ItemsSource="{Binding LGroup}" 
+				ItemDisplayBinding="{Binding Gname}" 
+				SelectedItem="{Binding SelectedGroup}"
+				SelectedIndex="{Binding Index}" />-->
+		<Picker
+			WidthRequest="300"
+			ItemsSource="{Binding LGroup}"
+			ItemDisplayBinding="{Binding Gname, x:DataType=model:Group}"
+			SelectedItem="{Binding SelectedGroup, Mode=TwoWay}"
+			SelectedIndex="{Binding Index}"/>
+
+
 		<Label Text="Image"/>
 		<Image  BackgroundColor="Aqua"  Source ="{Binding NImage}" WidthRequest="300" HeightRequest="200" />
 

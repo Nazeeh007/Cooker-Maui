@@ -10,14 +10,15 @@
 
 		<ListView  ItemsSource="{Binding LItems}">
 			<ListView.ItemTemplate>
-				<DataTemplate x:DataType="model:Item">
+				<DataTemplate x:DataType="model:ItemView">
 					<ViewCell>
-						<Grid ColumnDefinitions="*,150,*,*,*,*,*">
+						<Grid ColumnDefinitions="*,150,*,*,*,*,*,*">
 							<Label Grid.Column="0" Text="{Binding ItmName}"/>
 							<Label Grid.Column="1" Text="{Binding ItmDesc}"/>
 							<Label Grid.Column="2" Text="{Binding ItmPrice}"/>
-							<Image Grid.Column="3" Source="{Binding ItmImage}" WidthRequest="100" HeightRequest="100"/>
-							<ImageButton Grid.Column="4"
+							<Label Grid.Column="3" Text="{Binding Gname}"/>
+							<Image Grid.Column="4" Source="{Binding ItmImage}" WidthRequest="100" HeightRequest="100"/>
+							<ImageButton Grid.Column="5"
 							  Source="edit.png"
 							  HorizontalOptions="Center"
 							  VerticalOptions="Center" 
@@ -25,7 +26,7 @@
 							  HeightRequest="25"
 							  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ItemControlPageVM}},Path=EditCommand }" 
 							  CommandParameter="{Binding Id}"/>
-							<ImageButton Grid.Column="5"
+							<ImageButton Grid.Column="6"
 							 Source="delete.png"
 							 HorizontalOptions="Center"
 							 VerticalOptions="Center" 
@@ -33,7 +34,7 @@
 							 HeightRequest="25"
 							 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ItemControlPageVM}},Path=StopCommand }" 
 							 CommandParameter="{Binding Id}"/>
-							<ImageButton Grid.Column="6"
+							<ImageButton Grid.Column="7"
 							 Source="active.png"
 							 HorizontalOptions="Center"
 							 VerticalOptions="Center" 

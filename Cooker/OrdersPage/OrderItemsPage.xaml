@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooker.OrdersPage.OrderItemsPage"
+			 xmlns:viewmodel="clr-namespace:Cooker.OrdersPage" x:DataType="viewmodel:OrderItemsPageVM"      
+			 xmlns:model="clr-namespace:Cooker.Models"
+             Title="OrderItemsPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to Order Items"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+		<Border Margin="20" WidthRequest="50">
+			<Grid ColumnDefinitions="*,*" >
+				<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Label Text="Order Item Count : " />
+					<Label Text="{Binding ItemCount}" TextColor="Red" />
+				</StackLayout>
+
+				<StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Label Text="Total Order : " />
+					<Label Text="{Binding TotalOrder}" TextColor="Red" />
+				</StackLayout>
+			</Grid>
+		</Border>
+		<ListView  ItemsSource="{Binding LItem}">
+			<ListView.ItemTemplate>
+				<DataTemplate x:DataType="model:ItemView">
+					<ViewCell>
+						<Border>
+							<Border.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrderItemsPageVM}},Path=SelectCommand }" 
+								CommandParameter="{Binding .}"/>
+							</Border.GestureRecognizers>
+							<Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*" RowSpacing="20">
+
+								<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{Binding ItmImage}" WidthRequest="100" HeightRequest="100"/>
+								<Label Grid.Column="1" Grid.Row="0"  Text="{Binding ItmName}"/>
+								<Label Grid.Column="1" Grid.Row="1"  Text="{Binding ItmDesc}"/>
+								<Label Grid.Column="2" Grid.Row="0"  Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding ItmPrice}"/>
+							</Grid>
+						</Border>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</VerticalStackLayout>
+</ContentPage>

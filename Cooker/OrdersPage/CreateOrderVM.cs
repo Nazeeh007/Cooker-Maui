@@ -17,7 +17,8 @@ namespace Cooker.OrdersPage
 		[RelayCommand]
 		public async Task Select(Group group)
 		{
-			var s = group.Id;
+			OrderFn.SelectedGroupId = group.Id;
+			await Shell.Current.GoToAsync("OrderItemsPage");
 		}
 	}
 }

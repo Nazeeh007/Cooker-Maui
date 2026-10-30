@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Cooker.AdminPage.GroupControls;
 using Cooker.AdminPage.ItemControls;
 using Cooker.Models;
 
@@ -8,13 +9,22 @@ namespace Cooker.AdminPage.ItemControls
 	public partial class AddEditItemPageVM : ObservableObject
 	{
 		[ObservableProperty]
-		public Item nItem;
+		public ItemView nItem;
 
 		[ObservableProperty]
 		public ImageSource nImage;
 
 		[ObservableProperty]
 		public string imagestring;
+
+		[ObservableProperty]
+		public List<Group> lGroup;
+
+		[ObservableProperty]
+		public Group selectedGroup;
+
+		[ObservableProperty]
+		public int index = -1;
 
 
 		public AddEditItemPageVM()
@@ -23,14 +33,17 @@ namespace Cooker.AdminPage.ItemControls
 		}
 		public async Task loadCommand()
 		{
+			LGroup =await  GroupFn.GetAll();
 			if (ItemFn.ItemAddEdit == 0)
 			{
-				NItem = new Item();
+				NItem = new ItemView();
 			}
 			else
 			{
 				NItem = await ItemFn.GetItem(ItemFn.ItemAddEdit);
 				NImage = NItem.ItmImage;
+				SelectedGroup = await GroupFn.GetGroup(NItem.Gid);
+				Index = LGroup.IndexOf(SelectedGroup);
 			}
 		}
 
@@ -51,6 +64,10 @@ namespace Cooker.AdminPage.ItemControls
 				if (Imagestring != null)
 				{
 					NItem.ItmImage = Imagestring;
+				}
+				if(SelectedGroup != null)
+				{
+					NItem.Gid = SelectedGroup.Id;
 				}
 				await ItemFn.UpdateAsync(NItem);
 			}
