@@ -21,7 +21,12 @@ namespace Cooker.OrdersPage
 		[RelayCommand]
 		public async Task Select(ItemView itemView)
 		{
-			var s = itemView.Expr1 ;
+			NewOrder newOrder = new NewOrder();
+			newOrder.OrderBillNo = 1;
+			newOrder.OrderTableNo = 1;
+			newOrder.ItmId = itemView.Expr1;
+
+			OrderFn.AddAsync(newOrder);
 			ItemCount++;
 
 		}
