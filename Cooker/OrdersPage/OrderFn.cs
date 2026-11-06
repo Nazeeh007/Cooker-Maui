@@ -123,6 +123,30 @@ namespace Cooker.OrdersPage
 			}
 
 			return result;
+		}		
+		public static async Task<List<TotalOrder>> GetAllOrdersReports(string  orderDate)
+		{
+			string result = string.Empty;
+
+			List<TotalOrder> LTotalOrder = new List<TotalOrder>();
+
+			string url = string.Format($"https://localhost:7235/Orders/GetAllOrdersReports?strOrderDate={orderDate}");
+
+			using (HttpClient client = new HttpClient())
+			{
+				client.BaseAddress = new Uri(url);
+
+				HttpResponseMessage response = await client.GetAsync(url);
+
+				if (response.IsSuccessStatusCode)
+				{
+					result = await response.Content.ReadAsStringAsync();
+
+					LTotalOrder = JsonConvert.DeserializeObject<List<TotalOrder>>(result);
+				}
+			}
+
+			return LTotalOrder;
 		}
 	}
 }

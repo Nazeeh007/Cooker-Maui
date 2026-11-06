@@ -8,6 +8,8 @@ public partial class LoginPage : ContentPage
 	}
 	private async void btnlogin_Clicked(object sender, EventArgs e)
 	{
+		var usrName = Username.Text;
+		var password = Password.Text;
 
 		Application.Current.MainPage = new AdminShell();
 
