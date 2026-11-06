@@ -25,5 +25,9 @@ public partial class OrdersView
 
     public bool? ConfirmFlag { get; set; }
 
-    public bool? PayFlag { get; set; }
+	public bool? PayFlag { get; set; }
+
+	public string? ItmName { get; set; }
+
+	public string? ItmImage { get; set; }
 }

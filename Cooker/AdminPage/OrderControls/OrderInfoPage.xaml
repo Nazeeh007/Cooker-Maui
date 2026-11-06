@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooker.AdminPage.OrderControls.OrderInfoPage"
+			 xmlns:viewmodel="clr-namespace:Cooker.AdminPage.OrderControls" x:DataType="viewmodel:OrderInfoPageVM"      
+             xmlns:model="clr-namespace:Cooker.Models"
+             Title="Order Info Page">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to Order Info"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+		<Border Margin="10" HeightRequest="50" >
+			<Grid ColumnDefinitions="*,*,*" >
+				<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Label Text="Order Item Count : " />
+					<Label Text="{Binding OHeader.CCount}" TextColor="Red" />
+				</StackLayout>
+
+				<StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Label Text="Total Order : " />
+					<Label Text="{Binding OHeader.Total}" TextColor="Red" />
+				</StackLayout>
+
+				<StackLayout Grid.Column="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Button Text="Pay Order" BackgroundColor="Red" Command="{Binding PayCommand} " />
+				</StackLayout>
+			</Grid>
+		</Border>
+
+		<ListView  ItemsSource="{Binding LOrderView}">
+			<ListView.ItemTemplate>
+				<DataTemplate x:DataType="model:OrdersView">
+					<ViewCell>
+						<Border>
+							<!--<Border.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrderInfoPageVM}},Path=SelectCommand }" 
+							CommandParameter="{Binding .}"/>
+							</Border.GestureRecognizers>-->
+							<Grid ColumnDefinitions="*,*,*,*,*"  RowSpacing="20">
+
+								<Image Grid.Column="0" Grid.RowSpan="2" Source="{Binding ItmImage}" WidthRequest="100" HeightRequest="100"/>
+								<Label Grid.Column="1"  Text="{Binding ItmName}"/>
+								<Label Grid.Column="2"  Text="{Binding OrderPrice}"/>
+								<Label Grid.Column="3"  Text="{Binding Quntity}"/>
+								<Label Grid.Column="4"  Text="{Binding OrderTotal}" TextColor="Red"/>
+							</Grid>
+						</Border>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</VerticalStackLayout>
+</ContentPage>

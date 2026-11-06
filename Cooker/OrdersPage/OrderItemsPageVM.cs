@@ -9,14 +9,16 @@ namespace Cooker.OrdersPage
 	{
 		[ObservableProperty]
 		public List<ItemView> lItem;
+
 		[ObservableProperty]
-		public int itemCount =0;
-		[ObservableProperty]
-		public int totalOrder =0;
+		public OrderHeader oHeader ;
+	
 
 		public async Task Reload()
 		{
 			LItem = await ItemFn.GetItemsByGroup(OrderFn.SelectedGroupId);
+			OHeader = await OrderFn.GetOrderHeader(1);
+
 		}
 		[RelayCommand]
 		public async Task Select(ItemView itemView)
@@ -25,10 +27,14 @@ namespace Cooker.OrdersPage
 			newOrder.OrderBillNo = 1;
 			newOrder.OrderTableNo = 1;
 			newOrder.ItmId = itemView.Expr1;
+			OrderFn.AddAsync(newOrder); 
+			OHeader = await OrderFn.GetOrderHeader(1);
 
-			OrderFn.AddAsync(newOrder);
-			ItemCount++;
-
+		}
+		[RelayCommand]
+		public async Task OpenOrder()
+		{
+			await Shell.Current.GoToAsync("MyOrderPage");
 		}
 	}
 }

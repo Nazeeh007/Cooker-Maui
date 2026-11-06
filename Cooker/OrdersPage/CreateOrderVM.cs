@@ -10,15 +10,26 @@ namespace Cooker.OrdersPage
 		[ObservableProperty]
 		public List<Group> lGroups;
 
+		[ObservableProperty]
+		public OrderHeader oHeader;
+
 		public async Task Reload()
 		{
 			LGroups = await GroupFn.GetAll();
+			OHeader = await OrderFn.GetOrderHeader(1);
+
 		}
 		[RelayCommand]
 		public async Task Select(Group group)
 		{
 			OrderFn.SelectedGroupId = group.Id;
 			await Shell.Current.GoToAsync("OrderItemsPage");
+		}
+
+		[RelayCommand]
+		public async Task OpenOrder()
+		{
+			await Shell.Current.GoToAsync("MyOrderPage");
 		}
 	}
 }

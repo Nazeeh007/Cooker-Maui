@@ -2,25 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cooker.AdminPage.OrderControls.OrderControlPage"
+			 xmlns:viewmodel="clr-namespace:Cooker.AdminPage.OrderControls" x:DataType="viewmodel:OrderControlPageVM"      
+             xmlns:model="clr-namespace:Cooker.Models"
              Title="OrderControlPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
+	<VerticalStackLayout>
+		<Label 
+            Text="Welcome to Orders Control"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-		<!--<ListView  ItemsSource="{Binding LGroups}">
+
+		<ListView Margin="40"  ItemsSource="{Binding LTotalOrders}" RowHeight="80">
 			<ListView.ItemTemplate>
-				<DataTemplate x:DataType="model:Group">
+				<DataTemplate x:DataType="model:TotalOrder">
 					<ViewCell>
-						<Grid ColumnDefinitions="*,*">
-							<Label Grid.Column="0" Text="{Binding Gname}"/>
-							--><!--<Label Grid.Column="1" Text="{Binding Gstatus}"/>--><!--
-							<Image Grid.Column="2" Source="{Binding Gimage}" WidthRequest="100" HeightRequest="100"/>
-						</Grid>
+						<Border>
+
+							<!--<Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrderItemsVM}}, Path=SelectCommand}" CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>-->
+
+							<Grid ColumnDefinitions="*,*,*,*" RowSpacing="20">
+								<Label Grid.Column="0"  Text="{Binding ToBillNo}" VerticalOptions="Center" HorizontalOptions="Center"/>
+								<Label Grid.Column="1" Text="{Binding ToTableNo}" VerticalOptions="Center" HorizontalOptions="Center"/>
+								<Label Grid.Column="2"  Text="{Binding ToTotal}" VerticalOptions="Center" HorizontalOptions="Center"/>
+								<ImageButton Grid.Column="3"
+									Source="active.png"
+									HorizontalOptions="Center"
+									VerticalOptions="Center" 
+									WidthRequest="25"
+									HeightRequest="25"
+									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrderControlPageVM}},Path=StartCommand }" 
+									CommandParameter="{Binding Id}
+									"/>
+							</Grid>
+						</Border>
+
 					</ViewCell>
 				</DataTemplate>
 			</ListView.ItemTemplate>
-		</ListView>-->
+		</ListView>
+
+
 	</VerticalStackLayout>
 </ContentPage>

@@ -10,16 +10,21 @@
             Text="Welcome to Order Items"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-		<Border Margin="20" WidthRequest="50">
-			<Grid ColumnDefinitions="*,*" >
+		
+		<Border Margin="10" HeightRequest="50" >
+			<Grid ColumnDefinitions="*,*,*" >
 				<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
 					<Label Text="Order Item Count : " />
-					<Label Text="{Binding ItemCount}" TextColor="Red" />
+					<Label Text="{Binding OHeader.CCount}" TextColor="Red" />
 				</StackLayout>
 
 				<StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
 					<Label Text="Total Order : " />
-					<Label Text="{Binding TotalOrder}" TextColor="Red" />
+					<Label Text="{Binding OHeader.Total}" TextColor="Red" />
+				</StackLayout>
+				
+				<StackLayout Grid.Column="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Button Text="Go To Order" BackgroundColor="Red" Command="{Binding OpenOrderCommand} " />
 				</StackLayout>
 			</Grid>
 		</Border>
