@@ -6,7 +6,9 @@ namespace Cooker.OrdersPage
 {
 	public class OrderFn
 	{
-		public static int SelectedGroupId;
+		public static int SelectedGroupId { get; set; }
+		public static int TableNo { get; set; }
+		public static int BillNo { get; set; }
 
 
 		public async static Task<string> AddAsync(NewOrder nOrder)
@@ -29,13 +31,13 @@ namespace Cooker.OrdersPage
 			return result;
 		}
 
-		public static async Task<OrderHeader> GetOrderHeader(int OrderBillId)
+		public static async Task<OrderHeader> GetOrderHeader(int OrdetableId)
 		{
 			string result = string.Empty;
 
 			OrderHeader orderHeader = new OrderHeader();
 
-			string url = string.Format($"https://localhost:7235/Orders/OrderHeader?orderBillNo={OrderBillId}");
+			string url = string.Format($"https://localhost:7235/Orders/OrderHeader?orderTableNo={OrdetableId}");
 
 			using (HttpClient client = new HttpClient())
 			{
@@ -54,7 +56,7 @@ namespace Cooker.OrdersPage
 			return orderHeader;
 		}
 
-		public static async Task<List<OrdersView>> GetAllOrders(int OrderBillId)
+		public static async Task<List<OrdersView>> GetAllOrders(int? OrderBillId)
 		{
 			string result = string.Empty;
 
@@ -147,6 +149,25 @@ namespace Cooker.OrdersPage
 			}
 
 			return LTotalOrder;
+		}
+		public async static Task<string> ConfirmOrder(int? orderBillNo)
+		{
+			string result = string.Empty;
+
+			string url = string.Format($"https://localhost:7235/Orders/ConfirmOrder?orderBillNo={orderBillNo}");
+
+
+			using (HttpClient client = new HttpClient())
+			{
+				client.BaseAddress = new Uri(url);
+				HttpResponseMessage response = await client.GetAsync(url);
+
+				if (response.IsSuccessStatusCode)
+				{
+					result = "Ok";
+				}
+			}
+			return result;
 		}
 	}
 }

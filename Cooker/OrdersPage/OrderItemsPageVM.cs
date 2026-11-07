@@ -12,23 +12,27 @@ namespace Cooker.OrdersPage
 
 		[ObservableProperty]
 		public OrderHeader oHeader ;
-	
+
+		[ObservableProperty]
+		public int tableNo;
+
 
 		public async Task Reload()
 		{
 			LItem = await ItemFn.GetItemsByGroup(OrderFn.SelectedGroupId);
-			OHeader = await OrderFn.GetOrderHeader(1);
+			OHeader = await OrderFn.GetOrderHeader(OrderFn.TableNo);
+			TableNo = OrderFn.TableNo;
 
 		}
 		[RelayCommand]
 		public async Task Select(ItemView itemView)
 		{
 			NewOrder newOrder = new NewOrder();
-			newOrder.OrderBillNo = 1;
-			newOrder.OrderTableNo = 1;
+			newOrder.OrderBillNo = OHeader.BillNo;
+			newOrder.OrderTableNo = TableNo;
 			newOrder.ItmId = itemView.Expr1;
-			OrderFn.AddAsync(newOrder); 
-			OHeader = await OrderFn.GetOrderHeader(1);
+			await OrderFn.AddAsync(newOrder); 
+			OHeader = await OrderFn.GetOrderHeader(TableNo);
 
 		}
 		[RelayCommand]

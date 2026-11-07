@@ -6,25 +6,43 @@
              xmlns:model="clr-namespace:Cooker.Models"
              Title="CreateOrder">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Groups"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+		<StackLayout Orientation="Horizontal" Margin="10" Spacing="50" HorizontalOptions="Center" VerticalOptions="Center">
+			<Label 
+				Text="Welcome to Groups"
+				VerticalOptions="Center" 
+				HorizontalOptions="Center" />
+			<StackLayout Orientation="Horizontal">
+				<Label 
+					Text="Table Number: "
+					VerticalOptions="Center" 
+					HorizontalOptions="Center" />
+				<Label 
+					Text="{Binding TableNo}"
+					VerticalOptions="Center" 
+					HorizontalOptions="Center" 
+					TextColor="Blue"/>
+			</StackLayout>
+		</StackLayout> 
 
 		<Border Margin="10" HeightRequest="50" >
-			<Grid ColumnDefinitions="*,*,*" >
+			<Grid ColumnDefinitions="*,*,*,*" >
 				<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Label Text="Bill Number : " />
+					<Label Text="{Binding OHeader.BillNo}" TextColor="Red" />
+				</StackLayout>
+				
+				<StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
 					<Label Text="Order Item Count : " />
 					<Label Text="{Binding OHeader.CCount}" TextColor="Red" />
 				</StackLayout>
 
-				<StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+				<StackLayout Grid.Column="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
 					<Label Text="Total Order : " />
 					<Label Text="{Binding OHeader.Total}" TextColor="Red" />
 				</StackLayout>
 
-				<StackLayout Grid.Column="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-					<Button Text="Go To Order" BackgroundColor="Red" Command="{Binding OpenOrderCommand} " />
+				<StackLayout Grid.Column="3" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Button Text="Go To Order" BackgroundColor="Red" Command="{Binding OpenOrderCommand}" Padding="5" />
 				</StackLayout>
 			</Grid>
 		</Border>

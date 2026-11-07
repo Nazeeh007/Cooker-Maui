@@ -13,15 +13,20 @@ namespace Cooker.OrdersPage
 		[ObservableProperty]
 		public List<OrdersView> lOrderView;
 
-		public async Task Reload()
+		[ObservableProperty]
+		public int tableNo;
+
+		public async Task Reload()														 
 		{
-			OHeader = await OrderFn.GetOrderHeader(1);
-			LOrderView = await OrderFn.GetAllOrders(1);
+			TableNo = OrderFn.TableNo;
+			OHeader = await OrderFn.GetOrderHeader(TableNo);
+			LOrderView = await OrderFn.GetAllOrders(OHeader.BillNo);
 		}
 		[RelayCommand]
 		public async Task ConfirmOrder()
 		{
-			//await Shell.Current.GoToAsync("CreateOrderPage");
+			await OrderFn.ConfirmOrder(OHeader.BillNo);
+			await Shell.Current.GoToAsync("SelectTablePage");
 		}
 	}
 }

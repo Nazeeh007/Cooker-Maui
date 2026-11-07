@@ -8,5 +8,20 @@
             Text="Welcome to Select Table"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+		<Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*" ColumnSpacing="20" RowSpacing="20" Margin="20">
+
+			<Button Text="1" BackgroundColor="Red" Grid.Row="0" Grid.Column="0" FontSize="Medium" x:Name="btn1" Clicked="btn1_Clicked" />
+			<Button Text="4" BackgroundColor="Red" Grid.Row="1" Grid.Column="0" FontSize="Medium" x:Name="btn4" Clicked="btn4_Clicked" />
+			<Button Text="7" BackgroundColor="Red" Grid.Row="2" Grid.Column="0" FontSize="Medium" x:Name="btn7" Clicked="btn7_Clicked" />
+
+			<Button Text="2" BackgroundColor="Red" Grid.Row="0" Grid.Column="1" FontSize="Medium" x:Name="btn2" Clicked="btn2_Clicked"/>
+			<Button Text="5" BackgroundColor="Red" Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="btn5" Clicked="btn5_Clicked"/>
+			<Button Text="8" BackgroundColor="Red" Grid.Row="2" Grid.Column="1" FontSize="Medium" x:Name="btn8" Clicked="btn8_Clicked"/>
+
+			<Button Text="3" BackgroundColor="Red" Grid.Row="0" Grid.Column="2" FontSize="Medium" x:Name="btn3" Clicked="btn3_Clicked"/>
+			<Button Text="6" BackgroundColor="Red" Grid.Row="1" Grid.Column="2" FontSize="Medium" x:Name="btn6" Clicked="btn6_Clicked"/>
+			<Button Text="9" BackgroundColor="Red" Grid.Row="2" Grid.Column="2" FontSize="Medium" x:Name="btn9" Clicked="btn9_Clicked"/>
+
+		</Grid>
+	</VerticalStackLayout>
 </ContentPage>

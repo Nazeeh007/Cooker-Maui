@@ -4,5 +4,7 @@
 	{
 		public double? Total { get; set; }
 		public int? CCount { get; set; }
+		public int? BillNo { get; set; }
+
 	}
 }

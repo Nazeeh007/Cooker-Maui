@@ -29,13 +29,14 @@ namespace Cooker
 
 		private async void OrderBtn_Clicked(object sender, EventArgs e)
 		{
-			await Shell.Current.GoToAsync("CreateOrder");
+			//await Shell.Current.GoToAsync("CreateOrder");
+			await Shell.Current.GoToAsync("SelectTablePage");
 
 		}
-		private async void ChatBtn_Clicked(object sender, EventArgs e)
-		{
-			await _connection.InvokeAsync("SendMessage", "Good");
-		}
+		//private async void ChatBtn_Clicked(object sender, EventArgs e)
+		//{
+		//	await _connection.InvokeAsync("SendMessage", "Good");
+		//}
 	}
 
 }

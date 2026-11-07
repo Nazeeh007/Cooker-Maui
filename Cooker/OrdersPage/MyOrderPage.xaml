@@ -13,18 +13,23 @@
 
 
 		<Border Margin="10" HeightRequest="50" >
-			<Grid ColumnDefinitions="*,*,*" >
+			<Grid ColumnDefinitions="*,*,*,*" >
 				<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+					<Label Text="Bill Number : " />
+					<Label Text="{Binding OHeader.BillNo}" TextColor="Red" />
+				</StackLayout>
+
+				<StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
 					<Label Text="Order Item Count : " />
 					<Label Text="{Binding OHeader.CCount}" TextColor="Red" />
 				</StackLayout>
 
-				<StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+				<StackLayout Grid.Column="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
 					<Label Text="Total Order : " />
 					<Label Text="{Binding OHeader.Total}" TextColor="Red" />
 				</StackLayout>
 
-				<StackLayout Grid.Column="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+				<StackLayout Grid.Column="3" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
 					<Button Text="Confirm Order" BackgroundColor="Red" Command="{Binding ConfirmOrderCommand} " />
 				</StackLayout>
 			</Grid>

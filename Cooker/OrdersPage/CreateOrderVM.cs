@@ -13,10 +13,14 @@ namespace Cooker.OrdersPage
 		[ObservableProperty]
 		public OrderHeader oHeader;
 
+		[ObservableProperty]
+		public int tableNo;
+
 		public async Task Reload()
 		{
 			LGroups = await GroupFn.GetAll();
-			OHeader = await OrderFn.GetOrderHeader(1);
+			OHeader = await OrderFn.GetOrderHeader(OrderFn.TableNo);
+			TableNo = OrderFn.TableNo;
 
 		}
 		[RelayCommand]
