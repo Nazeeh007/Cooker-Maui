@@ -16,7 +16,7 @@
 			<StackLayout Grid.Row="1" Margin="40,0" Spacing="20" >
 				<Button x:Name="OrderBtn" Text="Order Now"  BackgroundColor="Red" Clicked="OrderBtn_Clicked"/>
 				<Button x:Name="LoginBtn" Text="Login"  BackgroundColor="Red" Clicked="Button_Clicked"/>
-				<Button x:Name="ChatBtn" Text="Chat"  BackgroundColor="Red" Clicked="ChatBtn_Clicked"/>
+				<!--<Button x:Name="ChatBtn" Text="Chat"  BackgroundColor="Red" Clicked="ChatBtn_Clicked"/>-->
 			</StackLayout>
 
 		</Grid>

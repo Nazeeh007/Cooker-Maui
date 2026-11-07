@@ -1,3 +1,5 @@
+using Cooker.AdminPage.AdminControls;
+
 namespace Cooker.AdminPage;
 
 public partial class LoginPage : ContentPage
@@ -8,10 +10,9 @@ public partial class LoginPage : ContentPage
 	}
 	private async void btnlogin_Clicked(object sender, EventArgs e)
 	{
-		var usrName = Username.Text;
-		var password = Password.Text;
-
-		Application.Current.MainPage = new AdminShell();
-
+		UserFn.UserID = await UserFn.Login(Username.Text, Password.Text);
+		if (UserFn.UserID > 0) { 
+			Application.Current.MainPage = new AdminShell();
+		}
 	}
 }

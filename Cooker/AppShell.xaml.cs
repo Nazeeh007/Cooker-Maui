@@ -12,6 +12,7 @@ namespace Cooker
 			Routing.RegisterRoute("CreateOrder", typeof(CreateOrder));
 			Routing.RegisterRoute("OrderItemsPage", typeof(OrderItemsPage));
 			Routing.RegisterRoute("MyOrderPage", typeof(MyOrderPage));
+			Routing.RegisterRoute("SelectTablePage", typeof(SelectTablePage));
 		}
 	}
 }

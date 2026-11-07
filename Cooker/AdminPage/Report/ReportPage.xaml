@@ -27,7 +27,7 @@
 
 		</StackLayout>-->
 
-		<Grid ColumnDefinitions="*,Auto">
+		<Grid ColumnDefinitions="*,Auto" Margin="20">
 
 			<!-- Left Side -->
 			<StackLayout Grid.Column="0"
@@ -49,7 +49,7 @@
                  Spacing="5"
                  VerticalOptions="Center">
 
-				<Label Text="Total" />
+				<Label Text="Total : " />
 				<Label Text="{Binding LTotal}"
                TextColor="Red" />
 

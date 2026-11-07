@@ -113,6 +113,9 @@
 	  <MauiXaml Update="OrdersPage\OrderItemsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="OrdersPage\SelectTablePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

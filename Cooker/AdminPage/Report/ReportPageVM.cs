@@ -14,7 +14,7 @@ namespace Cooker.AdminPage.Report
 		public List<TotalOrder> lTotalOrder;
 
 		[ObservableProperty]
-		public double? lTotal;
+		public double? lTotal = 0;
 
 		public async Task Reload()
 		{

@@ -8,6 +8,7 @@ namespace Cooker.AdminPage.AdminControls
 	public class UserFn
 	{
 		public static int UserAddEdit = 0;
+		public static int UserID { get; set; }
 		public static async Task<List<UserPass>> GetAll()
 		{
 			string result = string.Empty;
@@ -209,6 +210,30 @@ namespace Cooker.AdminPage.AdminControls
 			return result;
 		}
 
+		public static async Task<int> Login(string user, string pass)
+		{
+			string result = string.Empty;
 
+			int userID = 0;
+
+			string url = string.Format($"https://localhost:7235/Users/Login?username={user}&password={pass}");
+
+			using (HttpClient client = new HttpClient())
+			{
+				client.BaseAddress = new Uri(url);
+
+				HttpResponseMessage response = await client.GetAsync(url);
+
+				if (response.IsSuccessStatusCode)
+				{
+					result = await response.Content.ReadAsStringAsync();
+
+					userID = JsonConvert.DeserializeObject<int>(result);
+				}
+			}
+
+			return userID;
+		}
 	}
+	
 }
