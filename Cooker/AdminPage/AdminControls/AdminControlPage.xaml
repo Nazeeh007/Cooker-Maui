@@ -15,8 +15,10 @@
                 HorizontalOptions="Center" 
                 FontSize="Small"
                 />
-
-			<Button Text="Add User" Command="{Binding AddCommand}" BackgroundColor="red" Grid.Row="1" />
+			<StackLayout Orientation="Horizontal" VerticalOptions="Center"  HorizontalOptions="Center" Spacing="50" Grid.Row="1">
+				<Button Text="Add User" Command="{Binding AddCommand}" BackgroundColor="red"  />
+				<Button Text="Exit" Command="{Binding ExitCommand}" BackgroundColor="red" />
+			</StackLayout>
 
 			<ListView  Grid.Row="2" ItemsSource="{Binding LUserPass}">
 				<ListView.ItemTemplate>

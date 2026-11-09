@@ -40,5 +40,10 @@ namespace Cooker.AdminPage.ItemControls
 			await ItemFn.ChangeStatusAsync(Id, true);
 			await Reload();
 		}
+		[RelayCommand]
+		public async void Back()
+		{
+			Application.Current.MainPage = new AdminShell();
+		}
 	}
 }

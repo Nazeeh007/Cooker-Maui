@@ -51,7 +51,10 @@ namespace Cooker.AdminPage.GroupControls
 				{
 					NGroup.Gimage = Imagestring;
 				}
-				await GroupFn.UpdateAsync(NGroup);
+				else {
+					NGroup.Gimage = null;
+				}
+					await GroupFn.UpdateAsync(NGroup);
 			}
 
 			await Shell.Current.GoToAsync("GroupControlPage");
@@ -78,6 +81,13 @@ namespace Cooker.AdminPage.GroupControls
 			Imagestring = Convert.ToBase64String(imageArray);
 		}
 
+
+		[RelayCommand]
+		public async void Exit()
+		{
+			await Shell.Current.GoToAsync("GroupControlPage");
+
+		}
 
 
 	}

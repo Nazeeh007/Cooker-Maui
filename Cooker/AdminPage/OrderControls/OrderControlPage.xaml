@@ -10,6 +10,14 @@
             Text="Welcome to Orders Control"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+		
+		<Grid ColumnDefinitions="*,*,*,*" RowSpacing="20">
+			<Label Grid.Column="0"  Text="Bill No" VerticalOptions="Center" HorizontalOptions="Center"/>
+			<Label Grid.Column="1" Text="Table No" VerticalOptions="Center" HorizontalOptions="Center"/>
+			<Label Grid.Column="2"  Text="Total" VerticalOptions="Center" HorizontalOptions="Center"/>
+			<Label Grid.Column="3"  Text="Open Order" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+		</Grid>
 
 
 		<ListView Margin="40"  ItemsSource="{Binding LTotalOrders}" RowHeight="80">
@@ -33,7 +41,7 @@
 									WidthRequest="25"
 									HeightRequest="25"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrderControlPageVM}},Path=StartCommand }" 
-									CommandParameter="{Binding Id}
+									CommandParameter="{Binding ToTableNo}
 									"/>
 							</Grid>
 						</Border>

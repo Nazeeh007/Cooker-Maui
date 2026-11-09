@@ -6,8 +6,10 @@
 			 xmlns:model="clr-namespace:Cooker.Models"
              Title="ItemControlPage">
 	<VerticalStackLayout Margin="10" Spacing="10">
-		<Button Text="Add Item"  BackgroundColor="red" Command="{Binding AddCommand}"/>
-
+		<StackLayout Spacing="5">
+			<Button Text="Add Item"  BackgroundColor="red" Command="{Binding AddCommand}"/>
+			<Button Text="Return"  BackgroundColor="red" Command="{Binding BackCommand}"/>
+		</StackLayout>
 		<ListView  ItemsSource="{Binding LItems}">
 			<ListView.ItemTemplate>
 				<DataTemplate x:DataType="model:ItemView">

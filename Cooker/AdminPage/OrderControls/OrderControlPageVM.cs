@@ -25,8 +25,9 @@ namespace Cooker.AdminPage.OrderControls
 		}
 
 		[RelayCommand]
-		public async Task Start()
+		public async Task Start(int id)
 		{
+			OrderFn.TableNo = id;
 			await Shell.Current.GoToAsync("OrderInfoPage");
 		}
 	}

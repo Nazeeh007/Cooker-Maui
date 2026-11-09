@@ -20,12 +20,12 @@ namespace Cooker.AdminPage.OrderControls
 
 		public async Task Reload()
 		{
-			OHeader = await OrderFn.GetOrderHeader(1);
-			LOrderView = await OrderFn.GetAllOrders(1);
+			OHeader = await OrderFn.GetOrderHeader(OrderFn.TableNo);
+			LOrderView = await OrderFn.GetAllOrders(OHeader.BillNo);
 		}
 		[RelayCommand]
 		public async void Pay() {
-			string result = await OrderFn.TotalOrderPay(1);
+			string result = await OrderFn.TotalOrderPay(OHeader.BillNo);
 		}
 
 	}

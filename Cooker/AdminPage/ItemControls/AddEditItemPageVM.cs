@@ -65,7 +65,11 @@ namespace Cooker.AdminPage.ItemControls
 				{
 					NItem.ItmImage = Imagestring;
 				}
-				if(SelectedGroup != null)
+				else { 
+					NItem.ItmImage = null;
+				}
+
+				if (SelectedGroup != null)
 				{
 					NItem.Gid = SelectedGroup.Id;
 				}
@@ -96,5 +100,11 @@ namespace Cooker.AdminPage.ItemControls
 			Imagestring = Convert.ToBase64String(imageArray);
 		}
 
+		[RelayCommand]
+		public async void Exit()
+		{
+			await Shell.Current.GoToAsync("ItemControlPage");
+
+		}
 	}
 }

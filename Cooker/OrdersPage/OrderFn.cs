@@ -105,7 +105,7 @@ namespace Cooker.OrdersPage
 			return LTotalOrder;
 		}
 
-		public static async Task<string> TotalOrderPay(int billNo)
+		public static async Task<string> TotalOrderPay(int? billNo)
 		{
 			string result = string.Empty;
 

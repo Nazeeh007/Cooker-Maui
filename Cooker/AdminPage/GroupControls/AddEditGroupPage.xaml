@@ -6,7 +6,7 @@
 			 xmlns:viewmodel="clr-namespace:Cooker.AdminPage.GroupControls" x:DataType="viewmodel:AddEditGroupPageVM" 
              xmlns:model="clr-namespace:Cooker.Models">
 
-	<VerticalStackLayout Margin="20">
+	<VerticalStackLayout Margin="20" Spacing="5">
 		<Label 
 				Text="Welcome to Add Edit Group"
 				VerticalOptions="Center" 
@@ -17,11 +17,18 @@
 
 		<Label Text="Image"/>
 		<Image  BackgroundColor="Aqua"  Source ="{Binding NImage}" WidthRequest="500" HeightRequest="300" />
+		<StackLayout Spacing="20">
 
-		<Button Command="{Binding SelectCommand}" Text="Select Image"/>
+			<StackLayout Spacing="5">
+				<Button Command="{Binding SelectCommand}" Text="Select Image"/>
 
 
-		<Button Text="Save" Command="{Binding SaveAddEditCommand}" BackgroundColor="red"/>
+				<Button Text="Save" Command="{Binding SaveAddEditCommand}" BackgroundColor="red"/>
+			</StackLayout>
+
+			<Button Text="Exit" Command="{Binding ExitCommand}" BackgroundColor="red"/>
+		</StackLayout>
+
 
 	</VerticalStackLayout>
 </ContentPage>
